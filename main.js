@@ -1,12 +1,30 @@
-let a = [4,5,6];
-let b = [
-    [1,2,3],
-    [4,5,6],
-    [7,8,9],
-];
+let clicks = 0;
 
-console.log(b);
+const TIMEOUT = 5000;
 
-for (let i = 0; i < b.length; i++) {
-    console.log(b[i]);   
+const display = document.querySelector("#display");
+const button = document.querySelector("#button");
+const counter = document.querySelector("#counter");
+
+button.onclick =start;
+function start() {
+    const startTime = Date.now();
+    display.textContent =formatTime(TIMEOUT);
+    button.onclick = () => counter.textContent = clicks++;
+
+    const interval = setInterval(() => {
+        const delta = Date.now() - startTime;
+        display.textContent = formatTime(TIMEOUT - delta);
+    }, 100);
+
+    const timeout = setTimeout(() =>{ 
+        button.onclick = null;
+        display.textContent = "GameOver";
+
+        clearInterval(interval);
+        clearTimeout(timeout);
+    }, TIMEOUT);
+}
+function formatTime(ms) {
+    return Number.parseFloat(ms / 1000).toFixed(2);
 }

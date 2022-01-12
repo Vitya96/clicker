@@ -1,5 +1,34 @@
-body{
-    box-sizing: border-box;
-    font-family: serif;
-    color: brown;
+html {
+    font-family: 'Press Start 2P', cursive;
+}
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    width: 100vh;
+    height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    color: red;
+}
+
+#button {
+    margin: 20px;
+    color: firebrick;
+    border-color: tomato;
+    position: relative;
+    font-size: .75rem;
+    width: 200px;
+    height: 50px;
+    font-size: 30px;
 }
